@@ -1,0 +1,207 @@
+.root {
+  --content-width: 40rem;
+  --note-width: 40rem;
+
+  @media (min-width: 75rem) {
+    --content-width: 60rem;
+  }
+
+  color: rgba(#000, 0.87);
+}
+
+.header {
+  display: grid;
+  grid-template-columns:
+    minmax(1rem, 1fr) [content-start] minmax(0, var(--content-width)) [content-end]
+    minmax(1rem, 1fr);
+  row-gap: 1rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  color: rgba(#fff, 0.87);
+  background-color: #222;
+}
+
+.header > h1 {
+  grid-column: content;
+  line-height: 1.25;
+}
+
+.header > p {
+  grid-column: content;
+  line-height: 1.75;
+  color: rgba(#fff, 0.6);
+}
+
+.colophon {
+  display: grid;
+  grid-template-columns:
+    minmax(1rem, 1fr) [content-start] minmax(0, var(--content-width)) [content-end]
+    minmax(1rem, 1fr);
+  line-height: 1.5;
+}
+
+.colophon > div {
+  grid-column: content;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.colophon > div > address {
+  margin-right: 1rem;
+}
+
+.colophon > div > address > a {
+  display: flex;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.colophon > div > address > a > img {
+  width: 2rem;
+  height: 2rem;
+  margin-top: -0.25rem;
+  margin-bottom: -0.25rem;
+  margin-right: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+}
+
+.colophon > div > p {
+  color: rgba(#000, 0.6);
+}
+
+.slides {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.slides > li {
+  display: grid;
+  grid-template-columns:
+    minmax(1rem, 1fr) [content-start list-start]
+    minmax(0, var(--content-width))
+    [content-end list-end] minmax(1rem, 1fr);
+  row-gap: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  @media (min-width: 75rem) {
+    grid-template-columns:
+      1fr [content-start] calc((var(--content-width) - var(--note-width)) / 2)
+      [list-start] var(--note-width) [list-end]
+      calc((var(--content-width) - var(--note-width)) / 2) [content-end] 1fr;
+  }
+}
+
+.slides > li + li {
+  margin-top: 2rem;
+}
+
+.slides > li:target {
+  background-color: #eee;
+}
+
+.slides > li > p {
+  grid-column: content;
+  position: relative;
+}
+
+.slides > li > p > img {
+  box-sizing: content-box;
+  width: 100%;
+  border: 1px solid #ddd;
+  margin-right: -1px;
+  margin-left: -1px;
+}
+
+.slides > li > p > a {
+  position: absolute;
+  bottom: 100%;
+  margin-left: -0.5rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: rgba(#000, 0.6);
+  text-decoration: none;
+
+  @media (min-width: 45rem) {
+    top: 0;
+    right: 100%;
+    bottom: auto;
+    margin-left: 0;
+  }
+}
+
+.slides > li > ul {
+  grid-column: list;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+
+  @media (min-width: 45rem) {
+    padding-left: 0;
+  }
+}
+
+.slides > li > ul > li + li {
+  margin-top: 1rem;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns:
+    minmax(1rem, 1fr)
+    [content-start] minmax(0, var(--content-width)) [content-end]
+    minmax(1rem, 1fr);
+  line-height: 1.5;
+  background-color: #eee;
+}
+
+.footer > div {
+  grid-area: content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer > div > address {
+  margin-right: 1rem;
+}
+
+.footer > div > address > a {
+  display: flex;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer > div > address > a > img {
+  width: 2rem;
+  height: 2rem;
+  margin-top: -0.25rem;
+  margin-bottom: -0.25rem;
+  margin-right: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+}
+
+.footer > div > p > a {
+  display: flex;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer > div > p > a > svg {
+  width: 2rem;
+  height: 2rem;
+  margin-top: -0.25rem;
+  margin-bottom: -0.25rem;
+  margin-right: 0.5rem;
+}
