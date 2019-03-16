@@ -653,7 +653,7 @@ svg {
     height: 1.5em;
     margin-right: 0.5em; }
   #presenter .timer__time {
-    min-width: 3em; }
+    font-variant-numeric: tabular-nums; }
   #presenter .timer__reset {
     display: -webkit-flex;
     display: flex;
